@@ -140,7 +140,6 @@ class Registration(QWidget):
                                 self.fname.setText('')
                                 self.sname.setText('')
                                 self.pname.setText('')
-                                self.dob.setText('')
                                 self.dep.setText('')
                                 self.cur.execute("insert into login(log, pw, ownerid) values (%s, %s, %s)",
                                                  (str(self.log.text()), str(ppas), self.doctorid))
