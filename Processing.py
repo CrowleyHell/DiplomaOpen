@@ -5,7 +5,6 @@ import imageio.v2 as imageio
 import cv2
 import os
 from PIL import Image
-
 SAVING_FRAMES_PER_SECOND = 60
 
 def get_saving_frames_durations(cap, saving_fps):
@@ -246,9 +245,22 @@ def proc(id):
     mn = min(xxMass)
     mx = max(xxMass)
     #print(mn, mx)
+    secForOne = 5/len(yMass)
+    maxx = -1
+    res = 0
+    for i in range(1, len(yMass)):
+        if yMass[i - 1] == yMass[i]:
+            res += secForOne
+            if res > maxx:
+                maxx = res
+        else:
+            res = 0
+    print(maxx)
+
     for i in range(len(yMass)):
         if xxMass[i] == mx or xxMass[i] == mn or xxMass[i] == mx - 1:
             plt.vlines(i, 45, 47, color='red')
+    plt.legend([maxx], loc='best')
     plt.savefig(f'results/{id}.jpg')
     #plt.show()
 # file_path = 'frame1.jpg'
