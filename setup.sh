@@ -10,7 +10,7 @@ python3 -m venv new_pyenv
 . ./new_pyenv/bin/activate
 apt-get install -y python3 
 
-
+apt-get install python3-pyqt5
 apt-get install -y python3-opencv
 apt-get install postgresql
 apt-get install postgresql postgresql-client
